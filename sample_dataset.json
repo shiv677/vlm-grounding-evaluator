@@ -1,0 +1,69 @@
+{
+  "ground_truths": [
+    {
+      "id": "item_001",
+      "image_id": "img_workspace_01",
+      "prompt": "locate the red ceramic coffee mug on the left desk corner",
+      "label": "coffee mug",
+      "bbox": { "ymin": 0.15, "xmin": 0.20, "ymax": 0.35, "xmax": 0.40 }
+    },
+    {
+      "id": "item_002",
+      "image_id": "img_workspace_01",
+      "prompt": "locate the silver laptop open in the center",
+      "label": "laptop",
+      "bbox": { "ymin": 0.40, "xmin": 0.30, "ymax": 0.85, "xmax": 0.75 }
+    },
+    {
+      "id": "item_003",
+      "image_id": "img_office_02",
+      "prompt": "locate the ergonomic black office chair",
+      "label": "office chair",
+      "bbox": { "ymin": 0.30, "xmin": 0.50, "ymax": 0.90, "xmax": 0.85 }
+    },
+    {
+      "id": "item_004",
+      "image_id": "img_stationery_03",
+      "prompt": "locate the ballpoint pen next to the notepad",
+      "label": "pen",
+      "bbox": { "ymin": 0.65, "xmin": 0.10, "ymax": 0.72, "xmax": 0.35 }
+    },
+    {
+      "id": "item_005",
+      "image_id": "img_workspace_01",
+      "prompt": "locate the warm-light desk lamp above the monitor",
+      "label": "desk lamp",
+      "bbox": { "ymin": 0.05, "xmin": 0.45, "ymax": 0.35, "xmax": 0.65 }
+    }
+  ],
+  "predictions": [
+    {
+      "id": "item_001",
+      "image_id": "img_workspace_01",
+      "label": "coffee mug",
+      "bbox": { "ymin": 0.16, "xmin": 0.21, "ymax": 0.34, "xmax": 0.39 },
+      "confidence": 0.94
+    },
+    {
+      "id": "item_002",
+      "image_id": "img_workspace_01",
+      "label": "laptop",
+      "bbox": { "ymin": 0.42, "xmin": 0.32, "ymax": 0.83, "xmax": 0.73 },
+      "confidence": 0.91
+    },
+    {
+      "id": "item_003",
+      "image_id": "img_office_02",
+      "label": "office chair",
+      "bbox": { "ymin": 0.50, "xmin": 0.65, "ymax": 0.92, "xmax": 0.88 },
+      "confidence": 0.62
+    },
+    {
+      "id": "item_004",
+      "image_id": "img_stationery_03",
+      "label": "pencil",
+      "bbox": { "ymin": 0.65, "xmin": 0.10, "ymax": 0.72, "xmax": 0.35 },
+      "confidence": 0.78
+    }
+  ]
+}
