@@ -43,6 +43,16 @@ def evaluate_item(
             status="MISSING_PREDICTION",
         )
 
+    if pred.image_id != gt.image_id:
+        return EvalResult(
+            item_id=gt.id,
+            image_id=gt.image_id,
+            label_match=gt.label.strip().lower() == pred.label.strip().lower(),
+            iou=0.0,
+            is_correct=False,
+            status="IMAGE_MISMATCH",
+        )
+
     label_match = gt.label.strip().lower() == pred.label.strip().lower()
     iou = calculate_iou(gt.bbox, pred.bbox)
     is_correct = label_match and (iou >= iou_threshold)

@@ -46,7 +46,8 @@ def run_evaluation(data_path: Path, iou_threshold: float = 0.5):
 def main():
     default_dataset = Path(__file__).parent / "sample_dataset.json"
     parser = argparse.ArgumentParser(description="Evaluate VLM spatial grounding predictions against ground truth labels.")
-    parser.add_argument("--data", type=Path, default=default_dataset, help="Path to evaluation JSON dataset.")
+    parser.add_argument("--data", "--dataset", dest="data", type=Path, default=default_dataset, help="Path to evaluation JSON dataset.")
+    parser.add_argument("--demo", action="store_true", help="Run evaluation on the default sample dataset.")
     parser.add_argument("--iou-threshold", type=float, default=0.5, help="IoU threshold for accuracy calculation (default 0.5).")
     args = parser.parse_args()
 

@@ -8,9 +8,9 @@ if str(CURRENT_DIR) not in sys.path:
     sys.path.insert(0, str(CURRENT_DIR))
 
 try:
-    from projects.vlm_grounding_evaluator.models import BoundingBox, GroundTruthItem, PredictionItem
-    from projects.vlm_grounding_evaluator.evaluator import calculate_iou, evaluate_item, evaluate_batch
-    from projects.vlm_grounding_evaluator.main import run_evaluation
+    from .models import BoundingBox, GroundTruthItem, PredictionItem
+    from .evaluator import calculate_iou, evaluate_item, evaluate_batch
+    from .main import run_evaluation
 except ImportError:
     from models import BoundingBox, GroundTruthItem, PredictionItem
     from evaluator import calculate_iou, evaluate_item, evaluate_batch
@@ -101,6 +101,18 @@ def test_evaluate_item_statuses():
     res_cls = evaluate_item(gt, pred_cls_err, iou_threshold=0.5)
     assert res_cls.status == "CLASSIFICATION_ERROR"
     assert not res_cls.is_correct
+
+    # Image ID mismatch
+    pred_img_mismatch = PredictionItem(
+        id="1",
+        image_id="img_2",
+        label="dog",
+        bbox=BoundingBox(ymin=0.1, xmin=0.1, ymax=0.5, xmax=0.5),
+    )
+    res_img_mismatch = evaluate_item(gt, pred_img_mismatch, iou_threshold=0.5)
+    assert res_img_mismatch.is_correct is False
+    assert res_img_mismatch.iou == 0.0
+    assert res_img_mismatch.status == "IMAGE_MISMATCH"
 
 
 def test_evaluate_batch_summary():
